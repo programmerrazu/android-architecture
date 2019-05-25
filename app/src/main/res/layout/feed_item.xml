@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.android.example.devsummit.archdemo.vo.FeedItem" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/post_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.post.text}"
+            app:layout_column="0"
+            app:layout_columnSpan="3"
+            app:layout_gravity="start"
+            app:layout_row="0"
+            app:layout_rowSpan="1"
+            tools:text="I am a feed text" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_column="0"
+            app:layout_columnSpan="1"
+            app:layout_columnWeight="1"
+            app:layout_row="1"
+            app:layout_rowSpan="1" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.user.name}"
+            app:layout_column="1"
+            app:layout_columnSpan="1"
+            app:layout_columnWeight="0"
+            app:layout_gravity="center"
+            app:layout_row="1"
+            app:layout_rowSpan="1"
+            tools:text="Frida" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_backup"
+            android:visibility="@{model.post.pending ? View.VISIBLE : View.GONE}"
+            app:layout_column="2"
+            app:layout_columnSpan="1"
+            app:layout_columnWeight="0"
+            app:layout_gravity="center"
+            app:layout_row="1"
+            app:layout_rowSpan="1" />
+    </android.support.v7.widget.GridLayout>
+</layout>
